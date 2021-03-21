@@ -1,0 +1,170 @@
+body{
+
+}
+
+#homeHeader{
+  background: radial-gradient(circle at top left, #342431 -10%, black 40%);
+}
+
+.couleur1{
+  color: #B393C3;
+}
+
+.couleur2{
+  color: #1C141F;
+}
+
+.headerContent{
+
+  margin-top: 50px;
+
+  .versions{
+    width: 50%;
+    margin-left: 20px;
+    text-align: center;
+    z-index: 2;
+
+    .achievments{
+      width: 100%;
+      position: relative;
+      span{
+        position: absolute;
+      }
+    }
+
+    ul {
+      color: #827DBC;
+      width: fit-content;
+      margin: 20px auto;
+      li {
+        margin: 10px auto;
+      }
+      li::marker{
+        font-size: 170%;
+        color: #827DBC;
+      }
+    }
+
+    .achievments{
+      color: #827DBC;
+    }
+  }
+
+  .imgBox {
+
+    width: 40%;
+    position: relative;
+
+    img {
+      max-width: 600px;
+      position: absolute;
+      right: -20%;
+    }
+  }
+
+}
+
+#JTIMain {
+  background: linear-gradient(#060506 10%, #a98ab8);
+  section{
+    text-align: center;
+  }
+}
+
+.wrapsection{
+  padding-top: calc(min(27vw,368px));
+  position: relative;
+  padding-bottom: 50px;
+}
+
+.toto_bene_img {
+  width: 100%;
+  height: 27vw;
+  max-height: 368px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-size: 100%;
+  border: 1px solid #707070;
+  box-shadow: 0px 5px 32px -5px rgba(0, 0, 0, 0.75);
+}
+
+.intro{
+  margin: 50px 0 50px 0px;
+
+  .intro_title{
+    margin-top: 90px;
+  }
+
+  .intro_text{
+
+    margin: 40px 0px 40px 0px;
+
+    p{
+      width: 60%;
+      margin: auto;
+    }
+  }
+}
+
+.pieces{
+  margin: 50px 0px;
+
+  .pieces_title{
+    margin-top: 20px;
+    margin-bottom: 100px;
+  }
+
+  .pieces_imgs{
+    text-align: -webkit-center;
+  }
+
+  .pics_grid{
+    height: 70vw;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 10% 10% auto 10% auto 25%;
+    grid-template-rows: 20% 10% 32% 8% 16% auto;
+    grid-template-areas:
+            ". pic1 pic1 pic1 . . "
+            ". pic1 pic1 pic1 . pic3 "
+            ". . pic2 pic2 pic2 pic3 "
+            "pic4 pic4 pic4 . . pic3 "
+            "pic4 pic4 pic4 pic5 pic5 pic5 "
+            ". . . pic5 pic5 pic5 ";
+    .pic{
+
+      border-radius: 41px;
+      margin: 5px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      &._1{
+        grid-area: pic1;
+        //background-color: #0c5460;
+      }
+      &._2{
+        grid-area: pic2;
+        //background-color: #2995a4;
+      }
+      &._3{
+        grid-area: pic3;
+        //background-color: #05d4f5;
+      }
+      &._4{
+        grid-area: pic4;
+        //background-color: #103d45;
+      }
+      &._5{
+        grid-area: pic5;
+        //background-color: #153034;
+      }
+    }
+
+  }
+
+}
+
+footer{
+  margin-top: 0px !important;
+}
