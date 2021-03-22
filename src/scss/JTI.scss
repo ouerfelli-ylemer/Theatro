@@ -87,6 +87,12 @@ body{
   background-size: 100%;
   border: 1px solid #707070;
   box-shadow: 0px 5px 32px -5px rgba(0, 0, 0, 0.75);
+
+  &.scrollAnimatedBg{
+    //background-attachment: fixed;
+    background-repeat: no-repeat;
+    transition: background-position 0.07s;
+  }
 }
 
 .intro{
@@ -94,6 +100,9 @@ body{
 
   .intro_title{
     margin-top: 90px;
+    *{
+      font-weight: bold;
+    }
   }
 
   .intro_text{
@@ -113,6 +122,9 @@ body{
   .pieces_title{
     margin-top: 20px;
     margin-bottom: 100px;
+    *{
+      font-weight: bold;
+    }
   }
 
   .pieces_imgs{
@@ -126,12 +138,32 @@ body{
     grid-template-columns: 10% 10% auto 10% auto 25%;
     grid-template-rows: 20% 10% 32% 8% 16% auto;
     grid-template-areas:
-            ". pic1 pic1 pic1 . . "
+            ". pic1 pic1 pic1 com1 com1 "
             ". pic1 pic1 pic1 . pic3 "
             ". . pic2 pic2 pic2 pic3 "
-            "pic4 pic4 pic4 . . pic3 "
+            "pic4 pic4 pic4 com2 com2 pic3 "
             "pic4 pic4 pic4 pic5 pic5 pic5 "
-            ". . . pic5 pic5 pic5 ";
+            "com3 com3 com3 pic5 pic5 pic5 ";
+
+    .comment{
+      display: flex;
+      align-items: center;
+      &._1{
+        grid-area: com1;
+      }
+      &._2{
+        grid-area: com2;
+      }
+      &._3{
+        grid-area: com3;
+      }
+      h2{
+        margin: auto;
+        font-family: 'Tajawal', sans-serif;
+        font-weight: 300;
+        font-size: 5vh;
+      }
+    }
     .pic{
 
       border-radius: 41px;
@@ -139,25 +171,21 @@ body{
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
+      box-shadow: 0px 5px 32px -5px rgba(0,0,0,0.75);
       &._1{
         grid-area: pic1;
-        //background-color: #0c5460;
       }
       &._2{
         grid-area: pic2;
-        //background-color: #2995a4;
       }
       &._3{
         grid-area: pic3;
-        //background-color: #05d4f5;
       }
       &._4{
         grid-area: pic4;
-        //background-color: #103d45;
       }
       &._5{
         grid-area: pic5;
-        //background-color: #153034;
       }
     }
 

@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="http://code.jquery.com/jquery-2.2.0.min.js">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -45,5 +48,66 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      function getPositionScreen(element){
+        var scrollTop     = $(window).scrollTop(),
+                elementOffset = element.offset().top,
+                distance      = (elementOffset - scrollTop);
+        return distance;
+      }
+      function viewportToPixels(value) {
+        var parts = value.match(/([0-9\.]+)(vh|vw)/)
+        var q = Number(parts[1])
+        var side = window[['innerHeight', 'innerWidth'][['vh', 'vw'].indexOf(parts[2])]]
+        return side * (q/100)
+      }
+      function goingDown(lastPos){
+        if ((lastPos - $(window).scrollTop()) < 0)
+        {
+          return 1;
+        }
+        else if ((lastPos - $(window).scrollTop()) > 0) {
+          return -1;
+        }
+        else return 0;
+      }
+    </script>
+    <script >
+      $(document).ready(function(){
+        var elements = $(".scrollAnimatedBg");
+        elements.css('background-position-y', '0vh');
+        const _10vh = viewportToPixels('60vh');
+        const _70vh = viewportToPixels('70vh');
+        const coef = screen.height*0.015;
+        var scrollInit1 = $(window).scrollTop();
+        var scrollInit2 = $(window).scrollTop();
+        $(window).scroll(function () {
+          elements.each(function (index, element) {
+            //console.log('element', $(element));
+            Id = $(element).attr("id");
+            console.log('id', Id);
+            posTopScreen = getPositionScreen($(element));
+            bgPos = $(element).css('background-position-y');
+            bgPos = parseInt(bgPos.substring(0, bgPos.length - 2));
+            console.log('before if', $(element));
+            if (posTopScreen < _70vh) {
+            //  console.log('after if', $(element));
+              (Id == "_1") ? scrollInit = scrollInit1 : scrollInit = scrollInit2;
+              if (goingDown(scrollInit) > 0 && bgPos > -_10vh) {
+                $(element).css('background-position-y', parseInt(bgPos - coef) + 'px');
+              //  console.log('down', $(element));
+
+              } else if (goingDown(scrollInit) < 0 && bgPos < -coef) {
+                $(element).css('background-position-y', parseInt(bgPos + coef) + 'px');
+                //console.log('up', $(element));
+                //if(parseInt(element.css('background-position-y').substring(0,bgPos.length-2)) > 0) element.css('background-position-y', 0 + 'px');
+              }
+              //console.log('this', $(this));
+              (Id == "_1") ? scrollInit1 = $(window).scrollTop() : scrollInit2 = $(window).scrollTop();
+            }
+          })
+        })
+      });
+    </script>
   </body>
 </html>

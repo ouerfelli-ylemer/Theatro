@@ -50,6 +50,7 @@ class JTI extends Component {
                 </header>
                 <main id="JTIMain">
                     <JTISection
+                        _id={""}
                         imgpath={"/assets/images/toto_bene.jpg"}
                         an={"2020"}
                         imgs={[
@@ -59,10 +60,12 @@ class JTI extends Component {
                             "/assets/images/tv.jpg",
                             "/assets/images/wow.jpg"
                         ]}
-                        class={"couleur1"}
+                        couleur={"couleur1"}
                         comments={['ebes a7a','salem salem', 'somthing bla']}
+                        addClass={""}
                     />
                     <JTISection
+                        _id={"_1"}
                         imgpath={"/assets/images/acceuil.jpg"}
                         an={"2019"}
                         imgs={[
@@ -72,10 +75,12 @@ class JTI extends Component {
                             "/assets/images/nice.jpg",
                             "/assets/images/clown.jpg"
                         ]}
-                        class={"couleur1"}
+                        couleur={"couleur1"}
                         comments={['ebes a7a','salem salem', 'somthing bla']}
+                        addClass={"scrollAnimatedBg"}
                     />
                     <JTISection
+                        _id={"_2"}
                         imgpath={"/assets/images/zeineb.jpg"}
                         an={"2018"}
                         imgs={[
@@ -85,8 +90,9 @@ class JTI extends Component {
                             "/assets/images/n.jpg",
                             "/assets/images/cat.jpg"
                         ]}
-                        class={"couleur2"}
+                        couleur={"couleur2"}
                         comments={['ebes a7a','salem salem', 'somthing bla']}
+                        addClass={"scrollAnimatedBg"}
                     />
                 </main>
                 <Footer/>
